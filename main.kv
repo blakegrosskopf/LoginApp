@@ -1,0 +1,173 @@
+<homeScreen>:
+    Screen:
+        Image
+            source: ".venv/Lib/pic.jpg"
+            size_hint: (1, 1)
+            allow_stretch: True
+            keep_ratio: False
+            width: "360dp"
+            height: "640dp"
+            pos_hint: {'center x':.5,'center_y': .5}
+        MDLabel:
+            text: "Welcome"
+            markup: True
+            font_name:"Verdana"
+            font_size:"48dp"
+            halign: "center"
+            color: "#FFFFFF"
+            pos_hint: {'center_y':.8}
+        MDTextField:
+            id: user
+            hint_text:"Email"
+            icon_right: 'account'
+            font_size:"20dp"
+            size_hint_x: .85
+            pos_hint: {'center_x':.5, 'center_y':.65}
+            on_text: self.text = self.text.replace(" ", " ")
+            write_tab: False
+        MDTextField:
+            id: psswd
+            hint_text:"Password"
+            password: True
+            icon_right: 'eye-off'
+            font_size:"20dp"
+            size_hint_x: .85
+            pos_hint: {'center_x':.5, 'center_y':.5}
+            on_text: self.text = self.text.replace(" ", " ")
+            write_tab: False
+
+        BoxLayout:
+            size_hint: .85, None
+            height: "30dp"
+            pos_hint: {'center_x':.5, 'center_y':.4}
+            spacing: "5dp"
+            MDCheckbox:
+                id: cb
+                size_hint: None,None
+                width: "30dp"
+                height: "30dp"
+                pos_hint: {'center_x':.5, 'center_y':.5}
+                on_press:
+                    psswd.password = False if psswd.password == True else True
+                    psswd.icon_right = "eye" if psswd.icon_right =="eye-off" else "eye-off"
+            MDLabel:
+                text:"[ref=Show Password]Show Password[/ref]"
+                markup: True
+                pos_hint: {'center_x':.5, 'center_y':.5}
+                on_ref_press:
+                    cb.active = False if cb.active == True else True
+                    psswd.password = False if psswd.password == True else True
+        BoxLayout:
+            size_hint: .6, None
+            height: "30dp"
+            pos_hint: {'center_x':.5, 'center_y':.3}
+            spacing: "5dp"
+            MDFlatButton:
+                text: "SIGN IN"
+                font_size: "22dp"
+                on_press: root.verify(user.text, psswd.text)
+            MDFlatButton:
+                text: "SIGN UP"
+                font_size: "22dp"
+                size_hint_x: 1
+                md_bg_color: '#000080'
+                on_press: root.manager.current = 'signUp'
+<signUp>:
+    Screen:
+        Image
+            source: ".venv/Lib/pic.jpg"
+            size_hint: (1, 1)
+            allow_stretch: True
+            keep_ratio: False
+            width: "360dp"
+            height: "640dp"
+            pos_hint: {'center x':.5,'center_y': .5}
+        MDLabel:
+            text: "Sign Up"
+            markup: True
+            font_name:"Verdana"
+            font_size:"48dp"
+            halign: "center"
+            color: "#FFFFFF"
+            pos_hint: {'center_y':.8}
+        MDTextField:
+            id: username_input
+            hint_text:"Email"
+            icon_right: 'account'
+            font_size:"20dp"
+            size_hint_x: .85
+            pos_hint: {'center_x':.5, 'center_y':.65}
+            on_text: self.text = self.text.replace(" ", " ")
+            write_tab: False
+        MDTextField:
+            id: password_input
+            hint_text:"Password"
+            password: True
+            icon_right: 'eye-off'
+            font_size:"20dp"
+            size_hint_x: .85
+            pos_hint: {'center_x':.5, 'center_y':.5}
+            on_text: self.text = self.text.replace(" ", " ")
+            write_tab: False
+
+        BoxLayout:
+            size_hint: .85, None
+            height: "30dp"
+            pos_hint: {'center_x':.5, 'center_y':.4}
+            spacing: "5dp"
+            MDCheckbox:
+                id: cb
+                size_hint: None,None
+                width: "30dp"
+                height: "30dp"
+                pos_hint: {'center_x':.5, 'center_y':.5}
+                on_press:
+                    password_input.password = False if password_input.password == True else True
+                    password_input.icon_right = "eye" if password_input.icon_right =="eye-off" else "eye-off"
+            MDLabel:
+                text:"[ref=Show Password]Show Password[/ref]"
+                markup: True
+                pos_hint: {'center_x':.5, 'center_y':.5}
+                on_ref_press:
+                    cb.active = False if cb.active == True else True
+                    password_input.password = False if password_input.password == True else True
+        BoxLayout:
+            size_hint: .6, None
+            height: "30dp"
+            pos_hint: {'center_x':.5, 'center_y':.3}
+            spacing: "5dp"
+            MDFlatButton:
+                text: "SIGN UP"
+                font_size: "22dp"
+                size_hint_x: 1
+                md_bg_color: '#000080'
+                on_press: root.create_user(username_input.text, password_input.text)
+                on_press: root.manager.current = 'home'
+        BoxLayout:
+            size_hint: .6, None
+            height: "30dp"
+            pos_hint: {'center_x':.05, 'center_y':.8}
+            spacing: "5dp"
+            MDFlatButton:
+                text: "<-"
+                font_size: "14dp"
+                size_hint_x: 1
+                on_press: root.manager.current = 'home'
+<sScreen>:
+    Screen:
+        Image
+            source: ".venv/Lib/pic.jpg"
+            size_hint: (1, 1)
+            allow_stretch: True
+            keep_ratio: False
+            width: "360dp"
+            height: "640dp"
+            pos_hint: {'center x':.5,'center_y': .5}
+        MDLabel:
+            text: "SUCCESS!"
+            markup: True
+            font_name:"Verdana"
+            font_size:"48dp"
+            halign: "center"
+            color: "#FFFFFF"
+            pos_hint: {'center_y':.8}
