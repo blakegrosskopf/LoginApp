@@ -9,8 +9,8 @@ This project is a mobile login application built using **Python** and **Kivy**, 
 - Most recent feature includes the hashing of passwords using bcrypt.
 
 ## Future Goals
-- Implementing additional security measures, such as password hashing and salting.
-- Adding two-factor authentication (2FA).
+- Implementing additional security measures, such as password hashing and salting. ✔
+- Adding two-factor authentication (2FA). (CURRENTLY WIP)
 - Implementing account lockout mechanisms for multiple failed attempts.
 - Encrypting stored data for enhanced security.
 - Performing penetration testing to identify and fix potential vulnerabilities.
