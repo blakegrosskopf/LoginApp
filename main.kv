@@ -57,6 +57,12 @@
                 on_ref_press:
                     cb.active = False if cb.active == True else True
                     psswd.password = False if psswd.password == True else True
+            MDLabel:
+                text:"[ref=Remember Me]Remember Me[/ref]"
+                markup: True
+                pos_hint: {'center_x':.5, 'center_y':.5}
+                on_ref_press:
+                    root.remember()
         BoxLayout:
             size_hint: .6, None
             height: "30dp"
@@ -171,3 +177,12 @@
             halign: "center"
             color: "#FFFFFF"
             pos_hint: {'center_y':.8}
+        BoxLayout:
+            size_hint: .6, None
+            height: "30dp"
+            pos_hint: {'center_x':.5, 'center_y':.3}
+            spacing: "5dp"
+            MDFlatButton:
+                text: "LOG OUT"
+                font_size: "22dp"
+                on_press: root.manager.current = 'home'
