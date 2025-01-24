@@ -2,10 +2,11 @@
 
 This project is a mobile login application built using **Python** and **Kivy**, with **SQLite3** as the database solution. The primary goal of this project is to progressively enhance security features over time, making it a continually evolving and improving application.
 
-## Current Features (Version 1.0)
+## Current Features (Version 1.0.1)
 - A simple login screen that allows users to register and log in.
 - Password validation that ensures the password meets specific criteria (e.g., uppercase letters, numbers, special characters, and minimum length).
 - SQLite3 database for secure storage of user credentials.
+- Most recent feature includes the hashing of passwords using bcrypt.
 
 ## Future Goals
 - Implementing additional security measures, such as password hashing and salting.
